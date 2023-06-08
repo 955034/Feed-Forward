@@ -14,6 +14,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
     JButton button1;
     JButton button2;
+    JButton button3;
 
     MyFrame() {
         this.setTitle("FeedForward");
@@ -28,6 +29,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
         button1 = new JButton();
         button2 = new JButton();
+        button3 = new JButton();
 
         try {
             backgroundImage = new ImageIcon(ImageIO.read(new File("src/Wallpaper_Frame1.jpg")));
@@ -46,18 +48,9 @@ public class MyFrame extends JFrame implements ActionListener {
         panel.setBackground(new Color(0, 100, 100, 150));
 
         backgroundLabel.setBounds(0, 0, screenSize.width, screenSize.height);
-        logoLabel.setBounds(0, 0, logo.getIconWidth(), logo.getIconHeight());
+        logoLabel.setBounds(100, 70, logo.getIconWidth(), logo.getIconHeight());
 
-        button1.setBounds(300, 500, 500, 100);
-        button1.setText("Feed-A-Friend");
-        button1.setFocusable(false);
-        button1.setIcon(icon);
-        button1.setFont(new Font("SF Pro", Font.PLAIN, 29));
-        button1.setForeground(new Color(0, 100, 100));
-        button1.setBackground(Color.white);
-        button1.addActionListener(this);
-
-        button2.setBounds(300, 350, 500, 100);
+        button2.setBounds(200, 500, 850, 100);
         button2.addActionListener(e -> System.out.println("hello"));
         button2.setText("Need-A-Meal");
         button2.setFocusable(false);
@@ -66,25 +59,42 @@ public class MyFrame extends JFrame implements ActionListener {
         button2.setForeground(new Color(0, 100, 100));
         button2.setBackground(Color.white);
 
+        button1.setBounds(200, 350, 850, 100);
+        button1.setText("Feed-A-Friend");
+        button1.setFocusable(false);
+        button1.setIcon(icon);
+        button1.setFont(new Font("SF Pro", Font.PLAIN, 29));
+        button1.setForeground(new Color(0, 100, 100));
+        button1.setBackground(Color.white);
+        button1.addActionListener(this);
+        
+        button3.setBounds(960, 40, 300, 100);
+        button3.setText("Sign Up as a Merchant!");
+        button3.setFocusable(false);
+        button3.setFont(new Font("SF Pro", Font.PLAIN, 20));
+        button3.setOpaque(true);
+        button3.setForeground(new Color(255, 255, 255));
+        button3.setBackground(new Color(0, 0, 0, 200));
+
         JLabel label = new JLabel("Established 2023");
         label.setHorizontalAlignment(JLabel.RIGHT);
         label.setVerticalAlignment(JLabel.TOP);
         label.setForeground(new Color(75, 141, 151));
-        label.setBounds(screenSize.width - 1350, screenSize.height - 580, 200, 50);
+        label.setBounds(screenSize.width - 1250, screenSize.height - 510, 200, 50);
         
         JLabel label1 = new JLabel("Feed Forward");
         label1.setHorizontalAlignment(JLabel.RIGHT);
         label1.setVerticalAlignment(JLabel.TOP);
         label1.setForeground(new Color(75, 141, 151));
         label1.setFont(new Font("SF Pro", Font.PLAIN, 69));
-        label1.setBounds(screenSize.width - 1550, screenSize.height - 680, 900, 100);
+        label1.setBounds(screenSize.width - 1740, screenSize.height - 720, 900, 100);
         
         JLabel label2 = new JLabel("Share a Meal, Make an Impact!");
         label2.setHorizontalAlignment(JLabel.RIGHT);
         label2.setVerticalAlignment(JLabel.TOP);
         label2.setForeground(Color.white);
         label2.setFont(new Font("SF Pro", Font.PLAIN, 25));
-        label2.setBounds(screenSize.width - 650, screenSize.height - 425, 500, 100);
+        label2.setBounds(screenSize.width - 955, screenSize.height - 410, 500, 100);
 
 
         JLayeredPane layeredPane = new JLayeredPane();
@@ -96,12 +106,13 @@ public class MyFrame extends JFrame implements ActionListener {
         layeredPane.add(logoLabel, JLayeredPane.PALETTE_LAYER);
         layeredPane.add(button1, JLayeredPane.POPUP_LAYER);
         layeredPane.add(button2, JLayeredPane.POPUP_LAYER);
+        layeredPane.add(button3, JLayeredPane.POPUP_LAYER);
         layeredPane.add(panel, JLayeredPane.PALETTE_LAYER);
 
-        int panelWidth = 600;
-        int panelHeight = 400;
-        int panelX = screenSize.width - panelWidth-400;
-        int panelY = screenSize.height - panelHeight -50;
+        int panelWidth = 1000;
+        int panelHeight = 330;
+        int panelX = screenSize.width - panelWidth-150;
+        int panelY = screenSize.height - panelHeight -100;
         panel.setBounds(panelX, panelY, panelWidth, panelHeight);
 
         this.setContentPane(layeredPane);
